@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6dd5ed, #b75d0f);
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    .weather-app {
+      max-width: 400px;
+      margin: 0 auto;
+      background: rgba(168, 41, 41, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    input {
+      padding: 10px;
+      width: 70%;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f39c12;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e67e22;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-app">
+    <h2>Weather Checker</h2>
+    <input type="text" id="location" placeholder="Enter city name" />
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    async function getWeather() {
+      const location = document.getElementById("location").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (!location) {
+        resultDiv.innerHTML = "Please enter a city name.";
+        return;
+      }
+
+      const apiKey = "2d2a81a802a047c4b7d163409252307";
+      const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("City not found");
+        }
+        const data = await response.json();
+        const temp = data.current.temp_c;
+        const condition = data.current.condition.text;
+        resultDiv.innerHTML = `Temperature in <b>${location}</b> is <b>${temp}°C</b> and weather is <b>${condition}</b>.`;
+      } catch (error) {
+        resultDiv.innerHTML = "Error: " + error.message;
+      }
+    }
+  </script>
+</body>
+</html>
+   
