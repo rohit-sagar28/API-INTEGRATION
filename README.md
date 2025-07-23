@@ -16,3 +16,7 @@
 
 As an intern at CodTech IT Solutions, my primary role is to gain practical exposure to real-world IT projects and enhance my technical knowledge under the guidance of experienced mentors. The internship focuses on building skills in software development, web technologies, and problem-solving while preparing me for the demands of the IT industry. CodTech IT Solutions emphasizes innovation and quality, and as an intern, I am encouraged to contribute meaningfully to various ongoing tasks.
 A major part of my internship involves web development, where I work on both front-end and back-end technologies. For front-end development, I use HTML, CSS, JavaScript, and frameworks like React.js to create user-friendly and responsive interfaces. On the back-end side, I gain experience with Node.js, Express, PHP, and database management systems like MySQL and MongoDB
+
+*OUTPUT
+
+<img width="1500" height="812" alt="Image" src="https://github.com/user-attachments/assets/ffd79843-7155-407b-bd22-c5075f05efb7" />
